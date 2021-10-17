@@ -15,8 +15,8 @@ let Buttons = [];
 let SettingsButtons = [];
 let DetailButtons = [];
 let LanguageButtons = [];
-let GraphButtons = [] ;
-let UiButtons=[];
+let GraphButtons = [];
+let UiButtons = [];
 
 let data;
 let data_js;
@@ -25,7 +25,7 @@ let data_cpp;
 let data_py;
 
 
-let WpmArr=[];
+let WpmArr = [];
 let EnterTime;
 let LeaveTime;
 let wpm;
@@ -41,7 +41,7 @@ let Bg_Color = "#242933";
 let Correct_C = "#ffffff";
 let Wrong_C = "#EB3C51";
 let Parent_C = "#768198";
-let Bg_Graph_C= "#1D2129";
+let Bg_Graph_C = "#1D2129";
 let Bg_Tone_C = "#1E222B";
 
 let Font;
@@ -50,6 +50,8 @@ let DefaultFontSize = 12;
 
 let TypeAmount = 2; // the amount of sound files 
 let Sound = [];
+let audios = [];
+let SoundTest ;
 
 
 let markX;
@@ -67,7 +69,7 @@ let MarkSpeed = 0.2;
 
 //indexs that point onto the currently pressed buttons.
 let LanguageIndex = -1;
-let TimerIndex= 0;
+let TimerIndex = 0;
 
 
 //valuable variables that will be used to try to use the program 
@@ -117,10 +119,10 @@ let prevOffset = 0;
 
 let ascii = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let URL = "https://api.npoint.io/49ee2d6338d4a80e36e2";
-let URL_js="https://api.npoint.io/cb58920b800f11675445";
-let URL_html="https://api.npoint.io/eaa3814cc7860a66e0c4";
-let URL_cpp="https://api.npoint.io/5007cb3531bdfb43ac4b";
-let URL_py ="https://api.npoint.io/db5e02dea1049ed72340";
+let URL_js = "https://api.npoint.io/cb58920b800f11675445";
+let URL_html = "https://api.npoint.io/eaa3814cc7860a66e0c4";
+let URL_cpp = "https://api.npoint.io/5007cb3531bdfb43ac4b";
+let URL_py = "https://api.npoint.io/db5e02dea1049ed72340";
 
 
 //let json = {}; // new  JSON Object
@@ -143,12 +145,14 @@ function preload() {
   LoadSounds();
   getData();
   getDatas();
+  //SoundTest = loadSound(GetSounds());
 
+  
 }
 
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
   Width = width;
   Height = height;
   LoadAssets();
@@ -160,6 +164,7 @@ function setup() {
   getDatas();
   textSize(FontSize);
   textFont(Font);
+  //windowResized();
   //preload();
 
 
@@ -177,7 +182,7 @@ function windowResized() {
   setTimer(TimerIndex);
   SetLanguage(LanguageIndex);
   Typing_Btn.setTxt(currString);
- 
+
   //getData();
   //setup();
 }
@@ -194,8 +199,8 @@ function draw() {
 
   ShowButtons(SettingsButtons);
   UpdateButtons(SettingsButtons);
-
   ShowButtons(LanguageButtons);
+
   UpdateButtons(LanguageButtons);
 
   ShowButtons(UiButtons);
@@ -206,32 +211,30 @@ function draw() {
     ShowText(Typing_Btn);
     ShowMark();
     ShowTimer(Timer_Btn);
-    
-  }
-  else{
-    CheckHover(GraphButtons,false);
-  }
-  
 
-  if (!Started)
-  {
-    CheckHover(SettingsButtons,true);
+  }
+  else {
+    CheckHover(GraphButtons, false);
+  }
+
+
+  if (!Started) {
+    CheckHover(SettingsButtons, true);
     CheckHover(LanguageButtons);
     FadeOut(SettingsButtons);
     FadeOut(LanguageButtons);
   }
-  else
-  {
+  else {
     FadeIn(SettingsButtons);
     FadeIn(LanguageButtons);
   }
-   
+
   ShowDetails();
   ShowFader(Fader_Btn);
   CheckHover(UiButtons);
   //FadeButtonIn(Fader_Btn);  
 
- 
+
 
 
 }
@@ -244,8 +247,7 @@ function draw() {
 
 
 function mousePressed() {
-  if(!Started)
-  {
+  if (!Started) {
     ExecSetButtons(SettingsButtons);
     ExecLangButtons(LanguageButtons);
   }
@@ -260,28 +262,29 @@ function keyPressed() {
 
   console.log(keyCode);
 
-  if (keyCode == 223) //under ESC
+  if (keyCode == 223 || keyCode == 192) //under ESC
   {
     ResetTest();
+    //audios[0].play();
     return;
   }
 
   if (keyCode == 27)//Esc for settings 
   {
     return;
-  } 
+  }
 
   if (keyCode == 17)//Control
   {
     return;
   }
 
-  if(keyCode==16) //Shift
+  if (keyCode == 16) //Shift
   {
     return;
   }
 
-  if(keyCode==9)//TAB
+  if (keyCode == 9)//TAB
   {
     return;
   }
@@ -304,15 +307,13 @@ function keyPressed() {
 
 }
 
-function keyDown()
-{
-  if(keyIsDown(SHIFT))
+function keyDown() {
+  if (keyIsDown(SHIFT))
     Uppper = true;
 }
 
-function keyUp()
-{
-  Uppper=false;
+function keyUp() {
+  Uppper = false;
 
 }
 

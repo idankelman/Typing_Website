@@ -1,7 +1,7 @@
 
 
 //======================================================================
-//              this is the functions of the program : 
+//              this is the functions of the program  : 
 //======================================================================
 
 
@@ -15,10 +15,28 @@ function LoadAssets() {
 }
 
 function LoadSounds() {
+
+    /*
+    for (let i = 0; i < TypeAmount; i++)
+        Sound.push(new Audio(`Type${i + 1}.mp3`));
+    */
     for (let i = 0; i < TypeAmount; i++)
         Sound.push(loadSound(`Type${i + 1}.mp3`, null, null, Waiter));
-
     //Sound.push(new Audio(`Type${i + 1}.mp3`));
+
+}
+
+
+function GetSounds() {
+
+    let storage = firebase.storage().ref('Etc/1.png');
+    storage.getDownloadURL().then((url) => {
+        console.log(url);
+        //let Temp = loadSound(url);
+        //Temp.play();
+        return url;
+    });
+
 
 }
 
@@ -37,7 +55,7 @@ function getData() {
             //data = JSON.stringify(result);
             //console.log(result);
             data = result;
-            Fdata= data;
+            Fdata = data;
             //console.log(data);
             currString = GenerateString(amount, data); // making the string now so that it will be in sync
             Typing_Btn.setTxt(currString);
@@ -744,26 +762,26 @@ function GenerateGraphShape(arr, rightx, righty, leftx, lefty) {
     //Showing Errors / words per minute on the side of the graph
     fill(color(Parent_C));
     noStroke();
-    textSize(FontSize *0.75);
+    textSize(FontSize * 0.75);
     let Ofsseter = textWidth("xxx X");
     let T1 = "Words per Minute";
     let T2 = "Error";
 
-    
-    push();
-    translate(leftx-Ofsseter,BotY-Ofsseter/2);
-   //translate(width/2,height/2);
-    rotate(-PI/2);
-    text(T1,0,0);
-    pop();
-    
 
-    
     push();
-    translate(rightx+Ofsseter/2,lefty+GraphH/2-Ofsseter/2);
-   //translate(width/2,height/2);
-    rotate(PI/2);
-    text(T2,0,0);
+    translate(leftx - Ofsseter, BotY - Ofsseter / 2);
+    //translate(width/2,height/2);
+    rotate(-PI / 2);
+    text(T1, 0, 0);
+    pop();
+
+
+
+    push();
+    translate(rightx + Ofsseter / 2, lefty + GraphH / 2 - Ofsseter / 2);
+    //translate(width/2,height/2);
+    rotate(PI / 2);
+    text(T2, 0, 0);
     pop();
 
 }
@@ -782,11 +800,11 @@ function ShowGraphLine(arr, leftx, lefty) {
     if (WpmArr.length > 0)
         Avg = Avg / WpmArr.length;
 
-    
-    let Rad =  5;
+
+    let Rad = 5;
     let InitialX = leftx;
     let TableW = GraphBack.minRad * GraphBack.ratio1;
-    let Dots = TableW/(Rad*2);
+    let Dots = TableW / (Rad * 2);
     let LinesSpacer = TableW / (Dots);
     let BotY = lefty + GraphBack.minRad * GraphBack.ratio2;
     let AvgLine = map(Avg, 0, Max, BotY, lefty);
@@ -794,7 +812,7 @@ function ShowGraphLine(arr, leftx, lefty) {
     noStroke();
     fill(color(Parent_C));
     for (let i = 0; i <= Dots; i++, InitialX += LinesSpacer) {
-        circle(InitialX, AvgLine + textAscent("x") / 2,Rad);
+        circle(InitialX, AvgLine + textAscent("x") / 2, Rad);
     }
 
     //this line prints the text on the left size of the table
@@ -1183,7 +1201,7 @@ function CheckPressed(key, str, i) {
     //this function will check the current pressed key , if it matches
     //where the string index is at , it will return true. (checking with the)
     //asci code of it (upper or lower) . either way it updates the progress.
-    
+
 
     if (Started == false) {
         Started = true;
@@ -1370,8 +1388,7 @@ function updateProgress() {
     TotalProgress.push(true);
 
     let WpmCalc = 0;
-    if (LeaveTime != 0)
-    {
+    if (LeaveTime != 0) {
         WpmCalc = (1 / LeaveTime) * 60; //Wpm
         //WpmCalc = (WordLen/LeaveTime)*60; //characters per min
     }
@@ -1442,7 +1459,7 @@ function updateTimer() {
         Timer_Btn.Txt = "" + (TimeAmount - Sec);
     }
     LeaveTime += deltaTime / 1000;
-    EnterTime+= deltaTime/1000;
+    EnterTime += deltaTime / 1000;
 
 
 
@@ -1463,7 +1480,7 @@ function updateDetails() {
     }
     wpm = int(correctWords / TimeAmount * 60);
     wpm = Number(correctWords / TimeAmount * 60).toFixed(1);
-    let consistency = int(EnterTime/TimeAmount *100);
+    let consistency = int(EnterTime / TimeAmount * 100);
     let CorrectW = "Correct Words : " + correctWords;
     let Accuracy = Number((CorrectChars / TotalChars * 100).toFixed(1)); // rounds float ;
     let AccuracyInt = (int)(Accuracy);

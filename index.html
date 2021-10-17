@@ -1,5 +1,4 @@
-
-            <!-- This is the Html page of the website :-->
+<!-- This is the Html page of the website :-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +19,39 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.sound.min.js"></script>
-	
+
   <script src="sketch.js"></script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+
+
+  <script defer src='https://use.fontawesome.com/releases/v5.10.0/js/all.js'></script>
+
+
+  <script id="MainScript">
+    let firebaseConfig = {
+      apiKey: "AIzaSyBuFF6MeCRZds354ubUfZzijFwhYiGTS68",
+      authDomain: "typing-website.firebaseapp.com",
+      projectId: "typing-website",
+      storageBucket: "typing-website.appspot.com",
+      messagingSenderId: "1079079330604",
+      appId: "1:1079079330604:web:4b80e6d9a027c41c6e0289",
+      measurementId: "G-BZLRJ03SPV"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+  </script>
+
+
+
+
 </head>
 
 <body>
