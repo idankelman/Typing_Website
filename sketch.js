@@ -17,6 +17,8 @@ let DetailButtons = [];
 let LanguageButtons = [];
 let GraphButtons = [];
 let UiButtons = [];
+let Themes = [];
+
 
 let data;
 let data_js;
@@ -37,12 +39,67 @@ let Width;
 let Height;
 let earthquakes;
 let B1;
+
+//pallate 1 
+/*
+let Bg_Color = "#14213d";
+let Correct_C = "#ffffff";
+let Wrong_C = "#fca311";
+let Parent_C = "#6c757d";
+let Bg_Graph_C = "#6c757d";
+let Bg_Tone_C = "#e5e5e5";
+*/
+
+//pallet 2
+/*
 let Bg_Color = "#242933";
 let Correct_C = "#ffffff";
 let Wrong_C = "#EB3C51";
 let Parent_C = "#768198";
 let Bg_Graph_C = "#1D2129";
 let Bg_Tone_C = "#1E222B";
+*/
+
+
+//pallate 3 
+/*
+let Bg_Color = "#264653";
+let Correct_C = "#ffffff";
+let Wrong_C = "#e9c46a";
+let Parent_C = "#2a9d8f";
+let Bg_Graph_C = "#e9c46a";
+let Bg_Tone_C = "#f4a261";
+*/
+
+//pallate 1 
+/*
+let Bg_Color = "#001845";
+let Correct_C = "#ffffff";
+let Wrong_C = "#ff0054";
+let Parent_C = "#9e0059";
+let Bg_Graph_C = "#ffbd00";
+let Bg_Tone_C = "#ff5400";
+*/
+//pallet 2
+
+/*
+let Bg_Color = "#0d1b2a";
+let Correct_C = "#ffffff";
+let Wrong_C = "#3a86ff";
+let Parent_C = "#778da9";
+let Bg_Graph_C = "#415a77";
+let Bg_Tone_C = "#1b263b";
+*/
+
+//pallate 1 
+
+let Bg_Color = "#ffbc42";
+let Correct_C = "#ffffff";
+let Wrong_C = "#218380";
+let Parent_C = "#8f2d56";
+let Bg_Graph_C = "#ffbd00";
+let Bg_Tone_C = "#ff5400";
+
 
 let Font;
 let FontSize = 24;
@@ -104,6 +161,7 @@ let WrongWord = "";
 let currWords = [];
 let currInd = 0;
 let wordInd = 0;
+let ThemeIndex = 0;
 let currString = "";
 let correctWords = 0;
 let LastWord = true;
@@ -155,6 +213,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   Width = width;
   Height = height;
+  CreateThemes();
   LoadAssets();
   createScreenSizes();
   CreateButtons();
@@ -271,6 +330,8 @@ function keyPressed() {
 
   if (keyCode == 27)//Esc for settings 
   {
+    NextTheme();
+    windowResized();
     return;
   }
 

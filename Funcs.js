@@ -828,6 +828,90 @@ function ShowGraphLine(arr, leftx, lefty) {
     text("avg: " + AvgSet, leftx + TableW / 2 - W / 2 + textWidth("."), AvgLine + H / 2);
 }
 
+
+function CreateThemes() {
+    Themes = [];
+    //pallate 1 
+    /*
+    let Bg_Color = "#14213d";
+    let Correct_C = "#ffffff";
+    let Wrong_C = "#fca311";
+    let Parent_C = "#6c757d";
+    let Bg_Graph_C = "#6c757d";
+    let Bg_Tone_C = "#e5e5e5";
+    */
+
+    //pallet 2
+    /*
+    let Bg_Color = "#242933";
+    let Correct_C = "#ffffff";
+    let Wrong_C = "#EB3C51";
+    let Parent_C = "#768198";
+    let Bg_Graph_C = "#1D2129";
+    let Bg_Tone_C = "#1E222B";
+    */
+
+
+    //pallate 3 
+    /*
+    let Bg_Color = "#264653";
+    let Correct_C = "#ffffff";
+    let Wrong_C = "#e9c46a";
+    let Parent_C = "#2a9d8f";
+    let Bg_Graph_C = "#e9c46a";
+    let Bg_Tone_C = "#f4a261";
+    */
+
+    //pallate 4 
+    /*
+    let Bg_Color = "#001845";
+    let Correct_C = "#ffffff";
+    let Wrong_C = "#ff0054";
+    let Parent_C = "#9e0059";
+    let Bg_Graph_C = "#ffbd00";
+    let Bg_Tone_C = "#ff5400";
+    */
+    //pallet 5
+
+    /*
+    let Bg_Color = "#0d1b2a";
+    let Correct_C = "#ffffff";
+    let Wrong_C = "#3a86ff";
+    let Parent_C = "#778da9";
+    let Bg_Graph_C = "#415a77";
+    let Bg_Tone_C = "#1b263b";
+    */
+
+    //pallate 1 
+
+    let Bg_Color = "#ffbc42";
+    let Correct_C = "#ffffff";
+    let Wrong_C = "#218380";
+    let Parent_C = "#8f2d56";
+    let Bg_Graph_C = "#ffbd00";
+    let Bg_Tone_C = "#ff5400";
+    
+    let Theme1 = ["#14213d", "#ffffff", "#fca311", "#6c757d", "#6c757d", "#e5e5e5"];
+    let Theme2 = ["#242933","#ffffff","#EB3C51","#768198","#1D2129","#1E222B"];
+    let Theme3 = ["#264653","#ffffff","#e9c46a","#2a9d8f","#e9c46a","#f4a261"];
+    let Theme4 = ["#001845","#ffffff","#ff0054","#9e0059","#ffbd00","#ff5400"];
+    let Theme5 = ["#0d1b2a","#ffffff","#3a86ff","#778da9","#415a77","#1b263b"];
+    let Theme6 = ["#ffbc42","#ffffff","#218380","#8f2d56","#ffbd00","#ff5400"];
+
+    Themes.push(Theme1);
+    Themes.push(Theme2);
+    Themes.push(Theme3);
+    Themes.push(Theme4);
+    Themes.push(Theme5);
+    Themes.push(Theme6);
+
+
+
+}
+
+
+
+
 //======================================================================
 //                      Show Functions :   
 //======================================================================
@@ -1505,6 +1589,21 @@ function ResetTest() {
     currString = GenerateString(amount, Fdata);
     Typing_Btn.setTxt(currString);
     return;
+}
+
+
+function NextTheme() {
+    ThemeIndex++;
+    if(ThemeIndex>Themes.length)
+        ThemeIndex=0
+
+    Bg_Color = Themes[ThemeIndex][0];
+    Correct_C =  Themes[ThemeIndex][1];
+    Wrong_C =  Themes[ThemeIndex][2];
+    Parent_C =  Themes[ThemeIndex][3];
+    Bg_Graph_C =  Themes[ThemeIndex][4];
+    Bg_Tone_C =  Themes[ThemeIndex][5];
+
 }
 
 //======================================================================
