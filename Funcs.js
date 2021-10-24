@@ -161,6 +161,8 @@ function CreateButtons() {
     DetailButtons = [];
     LanguageButtons = [];
     UiButtons = [];
+    HelperButtons = [];
+
     //Buttons Start Typing : 
     Typing_Btn = new Button(Width / 2, Height / 2, TypingBtn_rad);
     Typing_Btn.setRect(TypingBtn_rad * 2, TypingBtn_rad);
@@ -191,6 +193,34 @@ function CreateButtons() {
     //Timer_Btn.lerpRad = true;
     //Timer_Btn.lerpAlpha = false;
     //Timer_Btn.minRad =Timer_Btn.maxRad;
+    let Help_Btn1; 
+    let Help_Btn2; 
+    let Help_Btn3; 
+
+    Help_Btn1 = new Button(Width / 2, Height / 2 + height/5.5, Timer_Btn_rad/2);
+    Help_Btn1.setSqr();
+    Help_Btn1.setTxt("in order to reset , press §", true, color(Parent_C), FontSize/1.5);
+    Help_Btn1.Color = color(Bg_Color);
+    HelperButtons.push(Help_Btn1);
+
+    Help_Btn2 = new Button(Width / 2, Height / 2 + height/5.5 -FontSize, Timer_Btn_rad/2);
+    Help_Btn2.setRect();
+    Help_Btn2.setTxt("press ESC to change theme", true, color(Parent_C), FontSize/1.5);
+    Help_Btn2.Color = color(Bg_Color);
+    HelperButtons.push(Help_Btn2);
+
+    
+    Help_Btn3 = new Button(Width / 2, Height-FontSize, Timer_Btn_rad/2);
+    Help_Btn3.setRect();
+    Help_Btn3.setTxt("press CapsLock to hide / unhide assistance buttons", true, color(Parent_C), FontSize/1.5);
+    Help_Btn3.Color = color(Bg_Color);
+    Buttons.push(Help_Btn3);
+
+
+    
+
+
+
 
     Detail_Btn = new Button(Width / 2, Height / 3, Timer_Btn_rad);
     Detail_Btn.setSqr();

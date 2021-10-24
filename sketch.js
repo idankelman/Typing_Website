@@ -18,7 +18,7 @@ let LanguageButtons = [];
 let GraphButtons = [];
 let UiButtons = [];
 let Themes = [];
-
+let HelperButtons = [];
 
 let data;
 let data_js;
@@ -144,6 +144,7 @@ let LastSec;
 let Started = false;
 let Stop = false;
 let Wait = true;
+let Help_Buttons = false;
 let TimeAmount = 30;
 
 let GraphBack;
@@ -255,6 +256,16 @@ function draw() {
   background(color(Bg_Color));
   ShowButtons(Buttons);
   UpdateButtons(Buttons);
+  ShowButtons(HelperButtons);  
+  UpdateButtons(HelperButtons);
+
+  if (Help_Buttons) {
+    FadeIn(HelperButtons); 
+  }
+  else
+  {
+    FadeOut(HelperButtons);
+  }
 
   ShowButtons(SettingsButtons);
   UpdateButtons(SettingsButtons);
@@ -352,6 +363,7 @@ function keyPressed() {
 
   if (keyCode == 20)//CapsLock
   {
+    Help_Buttons = !Help_Buttons;
     return;
   }
 
