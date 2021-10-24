@@ -1238,6 +1238,9 @@ function CheckPressed(key, str, i) {
         str = "";
 
     let c = CodeToAscii(key);
+    if(key == 189)
+        c='_';
+
 
     if (WrongWord.length > 0) {
         WrongWord += ((c + "").toLowerCase());

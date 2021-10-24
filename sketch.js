@@ -108,7 +108,7 @@ let DefaultFontSize = 12;
 let TypeAmount = 2; // the amount of sound files 
 let Sound = [];
 let audios = [];
-let SoundTest ;
+let SoundTest;
 
 
 let markX;
@@ -205,7 +205,7 @@ function preload() {
   getDatas();
   //SoundTest = loadSound(GetSounds());
 
-  
+
 }
 
 
@@ -350,6 +350,11 @@ function keyPressed() {
     return;
   }
 
+  if (keyCode == 20)//CapsLock
+  {
+    return;
+  }
+
 
   if (Stop == true)
     return;
@@ -377,7 +382,6 @@ function keyUp() {
   Uppper = false;
 
 }
-
 
 
 
