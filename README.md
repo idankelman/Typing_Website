@@ -4,7 +4,7 @@ This website is designed to help programmers and people that use the computer
 in their everyday life type faster. 
 
 
-The website's link:  http://idanke.mysoft.jce.ac.il/TypingWebsite_4/
+The website's link:  http://idanke.mysoft.jce.ac.il/CodeTyper/
 
 The website is completly user freindly and really minimalistic, it provides 
 a lot of options that the user can choose from , that will make their 
