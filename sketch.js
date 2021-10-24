@@ -51,14 +51,14 @@ let Bg_Tone_C = "#e5e5e5";
 */
 
 //pallet 2
-/*
+
 let Bg_Color = "#242933";
 let Correct_C = "#ffffff";
 let Wrong_C = "#EB3C51";
 let Parent_C = "#768198";
 let Bg_Graph_C = "#1D2129";
 let Bg_Tone_C = "#1E222B";
-*/
+
 
 
 //pallate 3 
@@ -71,7 +71,7 @@ let Bg_Graph_C = "#e9c46a";
 let Bg_Tone_C = "#f4a261";
 */
 
-//pallate 1 
+//pallate 4
 /*
 let Bg_Color = "#001845";
 let Correct_C = "#ffffff";
@@ -80,7 +80,7 @@ let Parent_C = "#9e0059";
 let Bg_Graph_C = "#ffbd00";
 let Bg_Tone_C = "#ff5400";
 */
-//pallet 2
+//pallet 5
 
 /*
 let Bg_Color = "#0d1b2a";
@@ -91,15 +91,15 @@ let Bg_Graph_C = "#415a77";
 let Bg_Tone_C = "#1b263b";
 */
 
-//pallate 1 
-
+//pallate 5 
+/*
 let Bg_Color = "#ffbc42";
 let Correct_C = "#ffffff";
 let Wrong_C = "#218380";
 let Parent_C = "#8f2d56";
 let Bg_Graph_C = "#ffbd00";
 let Bg_Tone_C = "#ff5400";
-
+*/
 
 let Font;
 let FontSize = 24;
@@ -161,7 +161,7 @@ let WrongWord = "";
 let currWords = [];
 let currInd = 0;
 let wordInd = 0;
-let ThemeIndex = 0;
+let ThemeIndex = 1;
 let currString = "";
 let correctWords = 0;
 let LastWord = true;
